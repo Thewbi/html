@@ -1,0 +1,39 @@
+body {
+  background: #ccc;
+  padding: 0px;
+}
+
+.very-specific-design {
+  width: 200px;
+  height: 100px;
+  padding: 0px;
+  text-align: left;
+  background: white;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+.scaleable-wrapper {
+  padding: 0px;
+  resize: both;
+  position: absolute;
+  background: #666;
+  height: 100px;
+}
+
+.ui-resizable-se {
+  width: 10px;
+  height: 10px;
+  background: orange;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.bigred {
+  color: red;
+  font-size: 5rem;
+}
