@@ -1,0 +1,176 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!--
+		<link href="./chniter.github.io_files/bootstrap.min.css" rel="stylesheet">
+		-->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!--<link href="./chniter.github.io_files/font-awesome.min.css" rel="stylesheet">-->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="./chniter.github.io_files/bstreeview.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<div class="content">
+			<div class="row">
+				<div class="col-md-6 pt-5">
+					<div id="tree" class="bstreeview">
+						<!--
+					<div href="#tree-item-0"
+						class="list-group-item"
+						data-toggle="collapse"
+						style="padding-left:1.25rem;"
+						aria-expanded="true">
+						<i class="state-icon fa-angle-down fa"></i>
+						<i class="item-icon fa fa-inbox">
+
+						</i>Inbox</div><div class="list-group collapse show" id="tree-item-0" style=""><div href="#tree-item-1" class="list-group-item" data-toggle="collapse" style="padding-left:2.5rem;" aria-expanded="true"><i class="state-icon fa-angle-down fa"></i><i class="item-icon fa fa-inbox"></i>Office</div><div class="list-group collapse show" id="tree-item-1" style=""><div href="#tree-item-2" class="list-group-item" data-toggle="collapse" style="padding-left:3.75rem;"><i class="item-icon fa fa-inbox"></i>Customers</div><div href="#tree-item-3" class="list-group-item" data-toggle="collapse" style="padding-left:3.75rem;"><i class="item-icon fa fa-inbox"></i>Co-Workers</div></div><div href="#tree-item-4" class="list-group-item" data-toggle="collapse" style="padding-left:2.5rem;"><i class="item-icon fa fa-inbox"></i>Others</div></div><div href="#tree-item-5" class="list-group-item" data-toggle="collapse" style="padding-left:1.25rem;"><i class="item-icon fa fa-archive"></i>Drafts</div><div href="#tree-item-6" class="list-group-item" data-toggle="collapse" style="padding-left:1.25rem;"><i class="item-icon fa fa-calendar"></i>Calendar</div><div href="#tree-item-7" class="list-group-item" data-toggle="collapse" style="padding-left:1.25rem;"><i class="item-icon fa fa-address-book"></i>Contacts</div><div href="#tree-item-8" class="list-group-item" data-toggle="collapse" style="padding-left:1.25rem;"><i class="item-icon fa fa-trash"></i>Deleted Items</div></div>
+				-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="./chniter.github.io_files/jquery-3.4.1.min.js.Download"></script>
+		<!--
+	<script src="./chniter.github.io_files/bootstrap.min.js.Download"></script>
+	-->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+		</script>
+		<script src="./chniter.github.io_files/bstreeview.js.Download">
+		</script>
+		<script>
+			$(function () {
+				// var jsonAsString = [
+				// 	{
+				// 		text: "Inbox",
+				// 		icon: "fa fa-inbox fa-fw",
+				// 		nodes: [
+				// 			{
+				// 				text: "Office",
+				// 				icon: "fa fa-inbox fa-fw",
+				// 				nodes: [
+				// 					{
+				// 						icon: "fa fa-inbox fa-fw",
+				// 						text: "Customers"
+				// 					},
+				// 					{
+				// 						icon: "fa fa-inbox fa-fw",
+				// 						text: "Co-Workers"
+				// 					}
+				// 				]
+				// 			},
+				// 			{
+				// 				icon: "fa fa-inbox fa-fw",
+				// 				text: "Others"
+				// 			}
+				// 		]
+				// 	},
+				// 	{
+				// 		icon: "fa fa-archive fa-fw",
+				// 		text: "Drafts"
+				// 	},
+				// 	{
+				// 		icon: "fa fa-calendar fa-fw",
+				// 		text: "Calendar"
+				// 	},
+				// 	{
+				// 		icon: "fa fa-address-book fa-fw",
+				// 		text: "Contacts"
+				// 	},
+				// 	{
+				// 		icon: "fa fa-trash fa-fw",
+				// 		text: "Deleted Items"
+				// 	},
+				//     {
+				//         icon: "fa fa-globe fa-fw",
+				// 		text: "Go to Google",
+				//         class: "text-info",
+				//         href: "https://google.com"
+				//     }
+				// ];
+
+				var jsonAsString = '[' +
+					'{' +
+					'"text": "Inbox",' +
+					'"icon": "fa fa-inbox",' +
+					'"nodes": [' +
+					'{' +
+					'"text": "Office",' +
+					'"icon": "fa fa-inbox",' +
+					'"nodes": [' +
+					'{' +
+					'"icon": "fa fa-inbox",' +
+					'"text": "Customers"' +
+					'},' +
+					'{' +
+					'"icon": "fa fa-inbox",' +
+					'"text": "Co-Workers"' +
+					'}' +
+					']' +
+					'},' +
+					'{' +
+					'"icon": "fa fa-inbox",' +
+					'"text": "Others"' +
+					'}' +
+					']' +
+					'},' +
+					'{' +
+					'"icon": "fa fa-archive",' +
+					'"text": "Drafts"' +
+					'},' +
+					'{' +
+					'"icon": "fa fa-calendar",' +
+					'"text": "Calendar"' +
+					'},' +
+					'{' +
+					'"icon": "fa fa-address-book",' +
+					'"text": "Contacts"' +
+					'},' +
+					'{' +
+					'"icon": "fa fa-trash",' +
+					'"text": "Deleted Items"' +
+					'}' +
+					']';
+
+					// var json = [
+					// 	{
+					// 		"icon": "fa fa-calendar fa-fw",
+					// 		"text": "Calendar"
+					// 	},
+					// 	{
+					// 		"icon": "fa fa-calendar fa-fw",
+					// 		"text": "Calendar"
+					// 	}
+					// ];
+
+					// var jsonAsString = '[' +
+					// 	'{' +
+					// 		'"icon": "fa fa-trash",' +
+					// 		'"text": "Deleted Items"' +
+					// 	'}' +
+					// ']';
+
+					// var json = [
+					// 	{
+					// 		"icon": "fa fa-trash",
+					// 		"text": "Deleted Items"
+					// 	}
+					// ];
+
+					var jsonAsObject = $.parseJSON(jsonAsString);
+
+					console.log(jsonAsObject);
+
+				$('#tree').bstreeview({
+					data: JSON.stringify(jsonAsObject)
+				});
+			});
+		</script>
+</body>
+
+</html>
