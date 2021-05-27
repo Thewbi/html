@@ -9,6 +9,7 @@ class DeviceCard {
     insert() {
         this.scaleable_wrapper_x = this.clone.querySelector('#scaleable-wrapper-x');
         this.scaleable_wrapper_x.id = 'scaleable-wrapper-' + this.id;
+        this.scaleable_wrapper_x.component = this;
 
         this.very_specific_design_x = this.clone.querySelector('#very-specific-design-x');
         this.very_specific_design_x.id = 'very-specific-design-' + this.id;
@@ -23,34 +24,45 @@ class DeviceCard {
         this.command_unlock_x.onclick = this.command_unlock_handler;
         this.command_unlock_x.component = this;
 
+        this.content_x = this.clone.querySelector('#content-x');
+        this.content_x.id = 'content-' + this.id;
+        this.content_x.textContent  = 'test ' + this.id;
+
         document.body.appendChild(this.clone);
 
-        var $el = $("#very-specific-design-" + this.id);
+        let $el = $("#very-specific-design-" + this.id);
         var elHeight = $el.outerHeight();
         var elWidth = $el.outerWidth();
 
-        var $wrapper = $("#scaleable-wrapper-" + this.id);
+        this.$wrapper = $("#scaleable-wrapper-" + this.id);
 
-        $wrapper.resizable({
+        this.$wrapper.resizable({
             resize: doResize,
         });
-        $wrapper.draggable();
+        this.$wrapper.draggable();
 
+        this.scale = 1.0;
         function doResize(event, ui) {
-            var scale = Math.min(ui.size.width / elWidth, ui.size.height / elHeight);
+
+            event.target.component.scale = Math.min(ui.size.width / elWidth, ui.size.height / elHeight);
 
             $el.css({
-                transform: "translate(-50%, -50%) scale(" + scale + ")",
+                transform: "translate(-50%, -50%) scale(" + event.target.component.scale + ")",
             });
         }
 
         var starterData = {
             size: {
-                width: $wrapper.width(),
-                height: $wrapper.height(),
+                width: this.$wrapper.width(),
+                height: this.$wrapper.height(),
             },
         };
-        doResize(null, starterData);
+        doResize({target: {
+            component: this
+        }}, starterData);
+
+        // initial state
+        this.lock();
     }
 
     command_lock_handler(event) {
@@ -69,10 +81,31 @@ class DeviceCard {
     lock() {
         this.locked = true;
         this.very_specific_design_x.style.background = 'green'
+
+        // select lock button
+        this.command_lock_x.style.color = 'white';
+        this.command_lock_x.style.background = 'blue';
+
+        // unselect unlock button
+        this.command_unlock_x.style.color = 'black';
+        this.command_unlock_x.style.background = 'grey';
     }
 
     unlock() {
         this.locked = false;
         this.very_specific_design_x.style.background = 'red';
+
+        // select lock button
+        this.command_lock_x.style.color = 'black';
+        this.command_lock_x.style.background = 'grey';
+
+        // unselect unlock button
+        this.command_unlock_x.style.color = 'white';
+        this.command_unlock_x.style.background = 'blue';
     }
+
+    position(x, y) {
+        this.$wrapper.css({'top': y, 'left' : x});
+    }
+
 }

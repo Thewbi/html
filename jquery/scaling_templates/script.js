@@ -34,3 +34,47 @@ function executeActionOnAllTemplates() {
     return deviceCard;
   });
 }
+
+function alignAllTemplates() {
+
+  const elementsPerRow = 10;
+  const left = 10;
+  const top = 40;
+  const padding = 10;
+
+  const rowHeight = 100;
+  const elementWidth = 200;
+
+  let x = left;
+  let y = top;
+
+  let rowIndex = 0;
+  deviceCards.map(function(deviceCard) {
+
+    deviceCard.position(x, y);
+
+    rowIndex++;
+
+    if (rowIndex === elementsPerRow) {
+      rowIndex = 0;
+      y += rowHeight + padding;
+      x = left;
+    } else {
+     x += elementWidth + padding;
+    }
+
+
+    return deviceCard;
+  });
+}
+
+function setup() {
+  console.log('setup');
+
+  for (i = 0; i < 520; i++) {
+    instantiateTemplate();
+  }
+  alignAllTemplates();
+}
+
+

@@ -10,11 +10,13 @@
   <body>
     <button onclick="instantiateTemplate();">Add</button>
     <button onclick="executeActionOnAllTemplates();">Toggle</button>
+    <button onclick="alignAllTemplates();">Align</button>
+    <button onclick="setup();">Setup</button>
     <template id="device_card_template">
       <div id="scaleable-wrapper-x" class="scaleable-wrapper">
         <div id="very-specific-design-x" class="very-specific-design">
           <span>Device AB280</span>
-          <p>
+          <p id="content-x">
             This is the content
           </p>
           <div class="command-container">
