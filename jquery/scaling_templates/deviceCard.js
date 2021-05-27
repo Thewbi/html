@@ -15,11 +15,13 @@ class DeviceCard {
 
         this.command_lock_x = this.clone.querySelector('#command-lock-x');
         this.command_lock_x.id = 'command-lock-' + this.id;
-        this.command_lock_x.onclick=this.command_lock_handler;
+        this.command_lock_x.onclick = this.command_lock_handler;
+        this.command_lock_x.component = this;
 
         this.command_unlock_x = this.clone.querySelector('#command-unlock-x');
         this.command_unlock_x.id = 'command-unlock-' + this.id;
-        this.command_unlock_x.onclick=this.command_unlock_handler;
+        this.command_unlock_x.onclick = this.command_unlock_handler;
+        this.command_unlock_x.component = this;
 
         document.body.appendChild(this.clone);
 
@@ -51,20 +53,26 @@ class DeviceCard {
         doResize(null, starterData);
     }
 
-    command_lock_handler() {
-        let msg = 'command_lock_handler() ' + this.id;
-        console.log(msg);
-        alert(msg);
+    command_lock_handler(event) {
+        event.srcElement.component.lock();
     }
 
-    command_unlock_handler() {
-        let msg = 'command_unlock_handler() ' + this.id;
-        console.log(msg);
-        alert(msg);
+    command_unlock_handler(event) {
+        event.srcElement.component.unlock();
     }
 
     executeAction() {
-        this.open = !this.open;
-        this.very_specific_design_x.style.background = this.open ? 'red' : 'green';
+        this.locked = !this.locked;
+        this.locked ? this.lock() : this.unlock();
+    }
+
+    lock() {
+        this.locked = true;
+        this.very_specific_design_x.style.background = 'green'
+    }
+
+    unlock() {
+        this.locked = false;
+        this.very_specific_design_x.style.background = 'red';
     }
 }

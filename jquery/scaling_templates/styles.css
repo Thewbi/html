@@ -1,6 +1,7 @@
 body {
   background: #ccc;
   padding: 0px;
+  box-sizing: border-box;
 }
 
 .very-specific-design {
@@ -36,4 +37,44 @@ body {
 .bigred {
   color: red;
   font-size: 5rem;
+}
+
+.cmd-btn-1 {
+  display:inline-block;
+  text-align:center;
+  width:30px;
+  height:23px;
+
+  border: 1px solid black;
+
+  padding-top:7px;
+
+  color:black;
+  background: gray;
+
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.cmd-btn-2 {
+  display:inline-block;
+  text-align:center;
+  width:30px;
+  height:23px;
+
+  border: 1px solid black;
+
+  color:white;
+  background: blue;
+
+  padding-top:7px;
+
+  position: absolute;
+  top: -10px;
+  left: 50px;
+}
+
+.command-container {
+  position: relative;
 }
