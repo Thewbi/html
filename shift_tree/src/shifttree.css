@@ -1,0 +1,208 @@
+/*
+.major-parent-box {
+  width: 300px;
+  height: 600px;
+
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  margin: 40px auto;
+  border-radius:4px;
+}
+
+.parent-box {
+  width: 600px;
+  height: 300px;
+
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+}
+
+.siblings {
+  display: block;
+  float: left;
+  height: 300px;
+  width: 50%;
+}
+
+.sibling-one {
+  background-color: #8e24aa;
+}
+
+.sibling-two {
+  background-color: #e65100;
+}
+
+span {
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  display: block;
+  line-height: 299px;
+}
+
+button {
+  display: block;
+  width: 300px;
+  height: 100px;
+  margin: auto;
+  background-color: #fff;
+  border: 1px solid #1565c0;
+  border-radius: 4px;
+  color: #1565c0;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: arial;
+}
+
+.move-right {
+  transform: translateX(-150%);
+  -webkit-transform: translateX(-50%);
+}*/
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
+.wrapper {
+  height: 100%;
+  border: 10px solid green;
+  margin: 0px;
+  padding: 0px;
+}
+
+.slides {
+  --dummy-property: 0px;
+
+  border: 10px solid blue;
+
+  width: 500px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+
+
+
+  /*
+  margin-top: 1em;
+  margin: 0 auto;
+  position: fixed;
+  background-color: red;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  border-bottom: 1px solid #ddd;
+
+  */
+}
+.slide {
+  --dummy-property: 0px;
+
+  /*display: flex;*/
+
+  /*visibility: hidden;*/
+
+  /* display: block; */
+  /* display: none; */
+  margin-left:-200%;
+
+  /* overflow: hidden; */
+
+  /*width: 100px;*/
+  height: 300px;
+  width: 100%;
+
+  background-color: red;
+
+  position: absolute;
+
+  /*
+  display: inline-block;
+  border-top: 1px solid #ddd;
+  background-color: #777;
+  width: 100%;
+  vertical-align: middle;
+
+  height: 59px;
+  transition: top .5s ease-in-out;
+  -web-kit-transition: top .5s ease-in-out;
+  z-index: 0;
+  top: 60px;
+  */
+}
+
+.slide.prev {
+  --dummy-property: 0px;
+  /*
+  top: -60px;
+  z-index: 10;
+  */
+}
+
+.slide.active {
+  --dummy-property: 0px;
+  border: 10px solid yellow;
+
+  /*visibility: visible;*/
+  display: block;
+  margin-left:0%;
+  /*
+  top: 0;
+  z-index: 20;
+  */
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+
+}
+
+
+.slidein {
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: 1;
+  animation-direction: normal; /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction */
+}
+
+@keyframes slidein {
+  from {
+    margin-left:200%;
+    display: block;
+  }
+
+  to {
+    margin-left:0%;
+    display: block;
+  }
+}
+
+.slideout {
+  animation-duration: 3s;
+  animation-name: slideout;
+  animation-iteration-count: 1;
+  animation-direction: normal; /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction */
+}
+
+@keyframes slideout {
+  from {
+    margin-left:0%;
+    display: block;
+  }
+
+  to {
+    margin-left:-200%;
+    display: block;
+  }
+}
