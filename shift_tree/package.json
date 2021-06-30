@@ -13,7 +13,9 @@
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "json-loader": "^0.5.7",
     "sass": "^1.35.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^2.0.0",
@@ -22,6 +24,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "normalize.css": "^8.0.1"
   }
 }

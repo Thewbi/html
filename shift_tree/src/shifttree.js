@@ -6,8 +6,78 @@ let prevNodeElement = undefined;
 let currentNodeElement = undefined;
 let nextNodeElement = undefined;
 
+//const navMode = 'swipe';
+const navMode = 'click';
+
+function navigateForward(childNode) {
+
+  if (!childNode) {
+    return;
+  }
+
+  // TODO: if child exists already, do not recreate it!
+
+  let childNodeElement = computeDivFromNode(childNode);
+
+  // state
+  nextNodeElement = childNodeElement;
+  currentNode = childNode;
+
+  // store the DOM Element in the tree node model
+  childNode.domElement = childNodeElement;
+
+  // select the slides container element
+  slidesElement.appendChild(childNodeElement);
+
+  slideLeft(currentNodeElement, nextNodeElement);
+  //slideRight(currentNodeElement, nextNodeElement);
+
+  currentNodeElement = childNodeElement;
+
+}
+
+function navigateBack() {
+
+  if (!currentNode) {
+    return;
+  }
+
+  let parentNode = currentNode.parent;
+
+  // if there is no parent (e.g. at the root node), do nothing
+  if (parentNode == undefined) {
+    return;
+  }
+
+  slideRight(currentNodeElement, parentNode.domElement);
+
+  // move all pointers one level up
+  currentNodeElement = parentNode.domElement;
+  currentNode = currentNode.parent;
+  parentNode = currentNode.parent;
+
+}
+
 function initTreeStructure(testdata) {
   slidesElement = document.querySelector('.slides');
+
+  if (navMode == 'swipe') {
+    // hammer.js swiping
+    var hammertime = new Hammer(slidesElement, { prevent_defaults: true });
+    hammertime.on('swipe', function(e) {
+      if (e.deltaX >= 0) {
+        console.log('swipe right');
+        let navNode = e.target.navNode;
+        navigateForward(navNode);
+        //e.preventDefault();
+      } else {
+        console.log('swipe left');
+        navigateBack();
+        //e.preventDefault();
+        //e.gesture.srcEvent.preventDefault()
+      }
+    });
+  }
 
   currentNode = testdata;
 
@@ -23,27 +93,8 @@ function initTreeStructure(testdata) {
   // back button handler
   let btnBack = document.querySelector('.btn-back');
   btnBack.addEventListener('click', () => {
-
-    let parentNode = currentNode.parent;
-    console.log('back from ', currentNode, ' to ', parentNode);
-
-    // if there is no parent (e.g. at the root node), do nothing
-    //if (parentNode == undefined || parentNode.id == 'root') {
-      if (parentNode == undefined) {
-      console.log('No parent, cannot navigate!');
-      return;
-    }
-
-    console.log('DOM element', parentNode.domElement);
-
-    //slideLeft(currentNodeElement, parentNode.domElement);
-    slideRight(currentNodeElement, parentNode.domElement);
-
-    // move all pointers one level up
-    currentNodeElement = parentNode.domElement;
-    currentNode = currentNode.parent;
-    parentNode = currentNode.parent;
-
+    //console.log('click');
+    navigateBack();
   });
 }
 
@@ -69,9 +120,6 @@ function slideRight(leed, follow) {
 
 /** Slides move to the left */
 function slideLeft(leed, follow) {
-
-  console.log('leed: ', leed, ' follow: ', follow);
-
   // toggle the active classes to display the next image
   leed.classList.toggle('active');
   leed.classList.remove('slidein-right');
@@ -86,7 +134,6 @@ function slideLeft(leed, follow) {
 
   follow.classList.add('slidein');
   follow.classList.remove('slideout');
-
 }
 
 function computeDivFromNode(node) {
@@ -97,38 +144,23 @@ function computeDivFromNode(node) {
   var nodeHeaderElement = document.createTextNode('HeaderText: ' + node.id);
   nodeElement.appendChild(nodeHeaderElement);
 
+  // insert links for each of the child nodes
   node.children.forEach(childNode => {
-    //console.log(childNode);
 
     childNode.parent = node;
 
     // div for navigation to child
     let childDivElement = document.createElement("div");
+    childDivElement.classList.add('slide-entry');
     childDivElement.appendChild(document.createTextNode('Child: ' + childNode.id));
     nodeElement.appendChild(childDivElement);
+    childDivElement.navNode = childNode;
 
     childDivElement.addEventListener('click', () => {
-      //console.log('clicked on ', childNode.id);
-
-      // TODO: if child exists already, do not recreate it!
-
-      let childNodeElement = computeDivFromNode(childNode);
-
-      // state
-      nextNodeElement = childNodeElement;
-      currentNode = childNode;
-
-      // store the DOM Element in the tree node model
-      childNode.domElement = childNodeElement;
-
-      // select the slides container element
-      slidesElement.appendChild(childNodeElement);
-
-      slideLeft(currentNodeElement, nextNodeElement);
-      //slideRight(currentNodeElement, nextNodeElement);
-
-      currentNodeElement = childNodeElement;
-
+      if (navMode == 'click') {
+        console.log('click');
+        navigateForward(childNode);
+      }
     })
   });
 

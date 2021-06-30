@@ -9,9 +9,9 @@ import shifttree_css from "./src/shifttree.css"
 //import { readTreeStructure } from "./src/shifttree.js"
 import initTreeStructure from "./src/shifttree.js"
 
-import treeStructure from './data/testdata.json';
+//import treeStructure from './data/testdata.json';
+
 import(
-  /* webpackChunkName: "json_menu" */
   './data/testdata.json'
 ).then(({default: testdata}) => {
 
@@ -23,6 +23,8 @@ import(
   initTreeStructure(testdata);
 });
 
+import hammer from "./node_modules/hammerjs/hammer";
+//var hammertime = new Hammer(myElement, myOptions);
 
 
 //import $ from "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"

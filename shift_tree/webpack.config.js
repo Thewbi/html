@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 const path = require("path");
 
 module.exports = {
@@ -38,13 +39,7 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.json$/,
-        exclude: /node_modules/,
-        use: [
-            'file-loader?name=[name].[ext]&outputPath=portal/content/json'
-        ]
-    },
+
     ],
   },
 };

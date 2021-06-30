@@ -1,0 +1,317 @@
+{
+    "id": "root",
+    "label": "Desktop",
+    "open": true,
+    "enabled": true,
+    "privileges": [{
+        "key": "operate",
+        "value": true
+    }, {
+        "key": "observe",
+        "value": true
+    }],
+    "children": [{
+            "id": "TestContainer",
+            "tooltip": "This is the best Coca Cola chicken I have ever had in my pathetic life!",
+            "open": true,
+            "enabled": true,
+            "privileges": [{
+                    "key": "operate",
+                    "value": true
+                }, {
+                    "key": "observe",
+                    "value": true
+                }
+            ],
+            "children": [{
+                    "id": "TestContainer_2",
+                    "label": "Rapunzels Versteck",
+                    "open": false,
+                    "enabled": true,
+                    "privileges": [{
+                            "key": "operate",
+                            "value": true
+                        }, {
+                            "key": "observe",
+                            "value": true
+                        }
+                    ],
+                    "children": [{
+                            "id": "TestContainer_7",
+                            "label": "Diamantener Plastikraum",
+                            "open": false,
+                            "enabled": true,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": false
+                                }, {
+                                    "key": "observe",
+                                    "value": true
+                                }
+                            ],
+                            "children": []
+                        },{
+                            "id": "TestContainer_14",
+                            "label": "Plastik Diamantenraum",
+                            "open": false,
+                            "enabled": true,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": false
+                                }, {
+                                    "key": "observe",
+                                    "value": false
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                }, {
+                    "id": "TestContainer_15",
+                    "label": "Casino Bereich",
+                    "open": false,
+                    "enabled": true,
+                    "privileges": [{
+                            "key": "operate",
+                            "value": true
+                        }, {
+                            "key": "observe",
+                            "value": true
+                        }
+                    ],
+                    "children": [{
+                            "id": "TestContainer_16",
+                            "label": "Bingo Bereich",
+                            "open": false,
+                            "enabled": true,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": true
+                                }, {
+                                    "key": "observe",
+                                    "value": false
+                                }
+                            ],
+                            "children": []
+                        },{
+                            "id": "TestContainer_17",
+                            "label": "Poker & Russisches Roulette",
+                            "open": false,
+                            "enabled": true,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": false
+                                }, {
+                                    "key": "observe",
+                                    "value": false
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                }, {
+                    "id": "TestContainer_18",
+                    "label": "Krankenstation",
+                    "open": false,
+                    "enabled": true,
+                    "privileges": [{
+                            "key": "operate",
+                            "value": false
+                        }, {
+                            "key": "observe",
+                            "value": true
+                        }
+                    ],
+                    "children": [{
+                            "id": "TestContainer_19",
+                            "label": "Thrombolysestation",
+                            "open": false,
+                            "enabled": true,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": false
+                                }, {
+                                    "key": "observe",
+                                    "value": true
+                                }
+                            ],
+                            "children": []
+                        },{
+                            "id": "TestContainer_20",
+                            "label": "Schönheits-Operationen",
+                            "open": false,
+                            "enabled": true,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": false
+                                }, {
+                                    "key": "observe",
+                                    "value": true
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                }, {
+                    "id": "TestContainer_1",
+                    "label": "Untere Ebene",
+                    "open": true,
+                    "enabled": true,
+                    "privileges": [{
+                            "key": "operate",
+                            "value": true
+                        }, {
+                            "key": "observe",
+                            "value": true
+                        }
+                    ],
+                    "children": [{
+                            "id": "TestContainer_3",
+                            "label": "Zumba Raum",
+                            "tooltip": "This must be a dream!",
+                            "open": false,
+                            "enabled": true,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": true
+                                }, {
+                                    "key": "observe",
+                                    "value": true
+                                }
+                            ],
+                            "children": []
+                        }, {
+                            "id": "TestContainer_4",
+                            "label": "Finischer Saunaraum",
+                            "open": false,
+                            "enabled": false,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": true
+                                }, {
+                                    "key": "observe",
+                                    "value": true
+                                }
+                            ],
+                            "children": []
+                        },{
+                            "id": "TestContainer_12",
+                            "label": "Russischer Saunaraum",
+                            "open": false,
+                            "enabled": true,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": true
+                                }, {
+                                    "key": "observe",
+                                    "value": true
+                                }
+                            ],
+                            "children": []
+                        }, {
+                            "id": "TestContainer_8",
+                            "label": "Geheime Labore",
+                            "open": true,
+                            "enabled": false,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": true
+                                }, {
+                                    "key": "observe",
+                                    "value": false
+                                }
+                            ],
+                            "children": [{
+                                "id": "TestContainer_9",
+                                "label": "Versuche an Milch",
+                                "open": true,
+                                "enabled": true,
+                                "privileges": [{
+                                        "key": "operate",
+                                        "value": true
+                                    }, {
+                                        "key": "observe",
+                                        "value": true
+                                    }
+                                ],
+                                "children": []
+                            },{
+                                "id": "TestContainer_10",
+                                "label": "Versuche an Wurst",
+                                "open": false,
+                                "enabled": true,
+                                "privileges": [{
+                                        "key": "operate",
+                                        "value": true
+                                    }, {
+                                        "key": "observe",
+                                        "value": true
+                                    }
+                                ],
+                                "children": []
+                            },{
+                                "id": "TestContainer_11",
+                                "label": "Versuche an Käse",
+                                "tooltip": "Nur mit Schutzanzug betreten!",
+                                "open": false,
+                                "enabled": true,
+                                "privileges": [{
+                                        "key": "operate",
+                                        "value": true
+                                    }, {
+                                        "key": "observe",
+                                        "value": true
+                                    }
+                                ],
+                                "children": []
+                            }]
+                        }
+                    ]
+                }, {
+                    "id": "TestContainer_5",
+                    "label": "Obere Ebene",
+                    "open": false,
+                    "enabled": true,
+                    "privileges": [{
+                            "key": "operate",
+                            "value": true
+                        }, {
+                            "key": "observe",
+                            "value": true
+                        }
+                    ],
+                    "children": [{
+                            "id": "TestContainer_6",
+                            "label": "Sonnendeck",
+                            "open": false,
+                            "enabled": true,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": true
+                                }, {
+                                    "key": "observe",
+                                    "value": true
+                                }
+                            ],
+                            "children": []
+                        },{
+                            "id": "TestContainer_7",
+                            "label": "Monddeck",
+                            "open": false,
+                            "enabled": true,
+                            "privileges": [{
+                                    "key": "operate",
+                                    "value": true
+                                }, {
+                                    "key": "observe",
+                                    "value": true
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
