@@ -6,7 +6,24 @@ import normalize from "./node_modules/normalize.css/normalize.css";
 //import flipcard from "./src/flipcard.css"
 
 import shifttree_css from "./src/shifttree.css"
-import shifttree from "./src/shifttree.js"
+//import { readTreeStructure } from "./src/shifttree.js"
+import initTreeStructure from "./src/shifttree.js"
+
+import treeStructure from './data/testdata.json';
+import(
+  /* webpackChunkName: "json_menu" */
+  './data/testdata.json'
+).then(({default: testdata}) => {
+
+  let jsonOutputElement = document.getElementById("rawJson");
+  jsonOutputElement.innerHTML = JSON.stringify(testdata, undefined, 2);
+
+  // do whatever you like with your "jsonMenu" variable
+  //console.log('testdata: ', testdata);
+  initTreeStructure(testdata);
+});
+
+
 
 //import $ from "https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"
 

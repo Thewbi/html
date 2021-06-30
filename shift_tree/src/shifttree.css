@@ -75,6 +75,11 @@ html, body {
   padding: 0px;
 }
 
+.container-back {
+  width: 500px;
+  margin: auto;
+}
+
 .slides {
   --dummy-property: 0px;
 
@@ -94,7 +99,7 @@ html, body {
 
   position: relative;
 
-  /* overflow: hidden;*/
+  /* overflow: hidden; */
 
 
 
@@ -123,7 +128,11 @@ html, body {
 
   /* display: block; */
   /* display: none; */
-  margin-left:-200%;
+
+  /*margin-left:-100%;*/
+  /**/margin-left:100%;
+
+  /*margin-left:0%;*/
 
   /* overflow: hidden; */
 
@@ -166,11 +175,16 @@ html, body {
 
   /*visibility: visible;*/
   display: block;
-  margin-left:0%;
+
+  /**/ margin-left: 0%;
+
   /*
   top: 0;
   z-index: 20;
   */
+}
+.slide.inactive {
+  margin-left: 100%;
 }
 
 .responsive {
@@ -211,6 +225,7 @@ html, body {
   animation-direction: normal; /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction */
 }
 
+/* slide slides out to the left */
 @keyframes slideout {
   from {
     margin-left:0%;
@@ -219,6 +234,49 @@ html, body {
 
   to {
     margin-left:-100%;
+    display: block;
+  }
+}
+
+
+
+
+.slidein-right {
+  animation-duration: 3s;
+  animation-name: slidein-right;
+  animation-iteration-count: 1;
+  animation-direction: normal; /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction */
+}
+
+/* slide slides in from the left to the right */
+@keyframes slidein-right {
+  from {
+    margin-left:-100%;
+    display: block;
+  }
+
+  to {
+    margin-left:0%;
+    display: block;
+  }
+}
+
+.slideout-right {
+  animation-duration: 3s;
+  animation-name: slideout-right;
+  animation-iteration-count: 1;
+  animation-direction: normal; /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction */
+}
+
+/* slide slides out to the right */
+@keyframes slideout-right {
+  from {
+    margin-left:0%;
+    display: block;
+  }
+
+  to {
+    margin-left:100%;
     display: block;
   }
 }
